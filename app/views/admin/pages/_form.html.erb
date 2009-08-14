@@ -29,4 +29,9 @@
     <td valign="top"><%=t("ext_static_content_body")%>:</td>
     <td><%= f.text_area :body, {"style" => "width:500px", "class"=> "wymeditor"} %> </td>
   </tr>
+  <tr>
+    <td valign="top"><%=t("ext_static_content_visible")%>:</td>
+    <td><%= f.checkbox :visible %> </td>
+  </tr>
+
 </table>
