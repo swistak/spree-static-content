@@ -16,5 +16,4 @@ class Admin::PagesController < Admin::BaseController
   create.after do
     Rails.cache.delete('pages')
   end
-  
 end
