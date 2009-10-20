@@ -13,7 +13,7 @@ class Page < ActiveRecord::Base
 
   def before_save
     unless new_record?
-      prev_position = Page.find(self.id).position
+      return unless prev_position = Page.find(self.id).position
       if prev_position > self.position
         Page.update_all("position = position + 1", ["? <= position AND position < ?", self.position, prev_position])
       elsif prev_position < self.position
