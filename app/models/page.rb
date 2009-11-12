@@ -8,7 +8,8 @@ class Page < ActiveRecord::Base
 
   def initialize(*args)
     super(*args)
-    self.position = Page.last.position + 1
+    last_page = Page.last
+    self.position = last_page ? last_page.position + 1 : 0
   end
 
   def before_save
