@@ -1,4 +1,5 @@
 class Page < ActiveRecord::Base
+  DEFAULT_PREFIX = "/"
   default_scope :order => "position ASC"
 
   validates_presence_of :title
@@ -39,6 +40,6 @@ private
   end
   
   def ensure_slash_prefix(str)
-    str.index('/') == 0 ? str : '/' + str
+    str.index('/') == 0 ? str : DEFAULT_PREFIX + str
   end
 end
