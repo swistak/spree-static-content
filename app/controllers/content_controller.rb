@@ -3,7 +3,7 @@ class ContentController < Spree::BaseController
 
   def show
     path = "page/#{params[:path].join("/")}"
-    pid = CACHE.fetch(path.to_url, 30) do
+    pid = Rails.cache.fetch(path.to_url, 30) do
       @page = Page.find_by_slug(params[:path])
       @page && @page.id
     end
